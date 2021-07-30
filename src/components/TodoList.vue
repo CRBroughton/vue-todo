@@ -5,18 +5,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import { onMounted } from "@vue/runtime-core";
-import Todo from "@/types/Todo";
 import db from "@/localbase";
+import { todos } from "@/functions/CreateTodos";
 
 export default defineComponent({
+  emits: ["todos"],
   setup() {
     onMounted(() => {
       getTodos();
     });
 
-    const todos = ref<Todo[]>([]);
+
     const getTodos = async () => {
       todos.value = await db.collection("todo").get();
     };

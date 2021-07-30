@@ -31,7 +31,6 @@
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  emits: ['CreateTodo'],
   setup(props__, { emit }) {
     const input = ref<string>("");
 

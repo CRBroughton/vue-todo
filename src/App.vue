@@ -9,8 +9,8 @@ import { defineComponent, ref } from "vue";
 import SideMenu from "@/components/SideMenu.vue";
 import CreateTodo from "@/components/CreateTodo.vue";
 import TodoList from "@/components/TodoList.vue";
-import db from "@/localbase";
-import Todo from "@/types/Todo";
+import { AddTodoToList } from "@/functions/CreateTodos";
+
 
 export default defineComponent({
   name: "App",
@@ -24,20 +24,6 @@ export default defineComponent({
 
     const ShowCreateTodo = () => {
       CreateTodoToggle.value = !CreateTodoToggle.value;
-    };
-
-    const AddTodoToList = function (input: string) {
-      const event = new Date();
-
-      const newTodo = <Todo>{
-        id: 1,
-        contents: input,
-        dateAdded: 1,
-        isCompleted: false,
-      };
-
-      db.collection("todo").add(newTodo);
-      return;
     };
 
     return { CreateTodoToggle, ShowCreateTodo, AddTodoToList };
