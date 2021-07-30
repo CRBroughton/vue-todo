@@ -21,8 +21,7 @@ const DeleteTodoFromList = function (input:number) {
   console.log(input)
   db.collection("todo").doc({ id:input }).delete();
 
-  const tempTodo = todos.value.filter(todo => todo.id !== input);
-  todos.value = tempTodo;
+  todos.value = todos.value.filter(todo => todo.id !== input);
   return;
 }
 
