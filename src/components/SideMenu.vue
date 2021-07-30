@@ -1,9 +1,8 @@
 <template>
-  <CreateTodo v-if="CreateTodoToggle" />
   <div class="absolute bottom-0 right-0 m-3 cursor-pointer">
     <svg
       v-if="CreateTodoToggle === false"
-      class="w-14 h-14 bg-gray-200 rounded-full text-gray-400"
+      class="w-14 h-14 bg-gray-200 rounded-full text-gray-400 outline-none focus:outline-none"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -17,8 +16,9 @@
         d="M12 6v6m0 0v6m0-6h6m-6 0H6"
       ></path>
     </svg>
-    <svg v-else
-      class="w-14 h-14 bg-gray-200 rounded-full text-gray-400"
+    <svg
+      v-else
+      class="w-14 h-14 bg-gray-200 rounded-full text-gray-400 outline-none focus:outline-none"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -37,19 +37,18 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import CreateTodo from "@/components/CreateTodo.vue";
-import db from "@/localbase";
 
 export default defineComponent({
-  components: {
-    CreateTodo,
-  },
-  setup() {
+  emits: ["CreateTodoToggle"],
+  setup(props__, { emit }) {
     const CreateTodoToggle = ref<boolean>(false);
+
     const CreateTodo = () => {
       CreateTodoToggle.value = !CreateTodoToggle.value;
+      emit("CreateTodoToggle");
       return;
     };
+
     return {
       CreateTodo,
       CreateTodoToggle,
