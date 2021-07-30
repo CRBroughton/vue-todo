@@ -1,6 +1,8 @@
 <template>
-  <div v-for="todo in todos" :key="todo.id" class="bg-gray-100 text-center">
-    <h1>{{ todo.contents }}</h1>
+  <div class="text-center h-screen pt-1">
+    <ul v-for="todo in todos" :key="todo.id" class="p-1">
+      <li class="my-1 p-4 rounded-xl bg-gray-300">{{ todo.contents }}</li>
+    </ul>
   </div>
 </template>
 
@@ -16,7 +18,6 @@ export default defineComponent({
     onMounted(() => {
       getTodos();
     });
-
 
     const getTodos = async () => {
       todos.value = await db.collection("todo").get();
