@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full absolute bottom-0 mb-24 flex">
+  <section class="w-full fixed bottom-0 mb-24 flex">
     <input
       class="text-center m-auto p-4 rounded bg-gray-700 text-gray-100"
       type="text"

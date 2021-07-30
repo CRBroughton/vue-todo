@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute bottom-0 right-0 m-3 cursor-pointer">
+  <div class="fixed bottom-0 right-0 m-3 cursor-pointer">
     <svg
       v-if="CreateTodoToggle === false"
       class="w-14 h-14 bg-gray-200 rounded-full text-gray-400 outline-none focus:outline-none"
