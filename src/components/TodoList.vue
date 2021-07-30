@@ -1,21 +1,20 @@
 <template>
-    <div>
-
-    </div>
+  <div></div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from "vue";
+import Todo from "@/types/Todo";
 
 export default defineComponent({
-    setup () {
-        
-
-        return {}
-    }
-})
+  setup() {
+    const todo = ref<Todo[]>([]);
+    return {
+      todo,
+    };
+  },
+});
 </script>
 
 <style scoped>
-
 </style>
