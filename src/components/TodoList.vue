@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div v-for="todo in todos" :key="todo.id">
+    <h1>{{ todo.contents }}</h1>
+  </div>
 </template>
 
 <script lang="ts">
@@ -8,9 +10,9 @@ import Todo from "@/types/Todo";
 
 export default defineComponent({
   setup() {
-    const todo = ref<Todo[]>([]);
+    const todos = ref<Todo[]>([]);
     return {
-      todo,
+      todos,
     };
   },
 });
