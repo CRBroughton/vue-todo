@@ -1,5 +1,9 @@
 # vue-todo
 
+A simple todo application using Vue 3, Localbase and Tailwind.
+
+@vue/test-utils is used for testing both creating todos and deleting todos.
+
 ## Project setup
 ```
 npm install
@@ -8,8 +12,7 @@ npm install
 ### Compiles and hot-reloads for development
 ```
 npm run serve
-```
-
+``
 ### Compiles and minifies for production
 ```
 npm run build
