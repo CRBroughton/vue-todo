@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 flex flex-row items-center">
+  <div class="p-6 flex flex-row items-center">
     <input
       class="p-3 mr-2 rounded-full w-full outline-none focus:outline-none rounded-lg text-center shadow-lg"
       type="text"
