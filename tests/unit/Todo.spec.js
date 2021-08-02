@@ -18,7 +18,7 @@ test("creates a todo", () => {
   saveToStorage(newTodo);
 
   expect(window.localStorage.getItem("the-key")).toEqual(newTodo);
-  console.log(window.localStorage.getItem("the-key"))
+  console.log("Created a todo: ", window.localStorage.getItem("the-key"))
 });
 
 test("deletes a todo", () => {
@@ -31,5 +31,5 @@ test("deletes a todo", () => {
   deleteFromStorage("New Todo");
 
   expect(window.localStorage.getItem("the-key")).toEqual(null);
-  console.log(window.localStorage.getItem("the-key"));
+  console.log("Deleted the todo: ", window.localStorage.getItem("the-key"));
 });
