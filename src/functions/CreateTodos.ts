@@ -8,7 +8,6 @@ const AddTodoToList = function (input: string) {
     const newTodo = <Todo>{
       id: Date.now(),
       contents: input,
-      dateAdded: 1,
       isCompleted: false,
     };
 
@@ -24,4 +23,15 @@ const DeleteTodoFromList = function (input:number) {
   return;
 }
 
-export { todos, AddTodoToList, DeleteTodoFromList };
+const setTodoToComplete = function (input:number) {
+  db.collection("todo").doc({ id:input }).get().then((todo: { isCompleted: boolean; }) => {
+    const todoCompletedValue = todo.isCompleted;
+    db.collection("todo").doc({ id:input }).update({
+    isCompleted: !todoCompletedValue
+    })
+    
+  })
+  return;
+}
+
+export { todos, AddTodoToList, DeleteTodoFromList, setTodoToComplete };
