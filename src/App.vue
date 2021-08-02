@@ -1,5 +1,7 @@
 <template>
-  <div class="font-semibold top-0 fixed bg-gray-200 flex w-full p-4 text-lg">Your tasks</div>
+  <div class="font-semibold top-0 fixed bg-gray-200 flex w-full p-4 text-lg">
+    Your tasks
+  </div>
   <div class="bg-gray-200">
     <TodoList />
     <CreateTodo

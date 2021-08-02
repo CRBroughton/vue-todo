@@ -1,12 +1,25 @@
 <template>
   <div class="p-6 flex flex-row items-center">
     <input
-      class="p-3 mr-2 rounded-full w-full outline-none focus:outline-none rounded-lg text-center shadow-lg"
+      class="
+        p-3
+        mr-2
+        rounded-full
+        w-full
+        outline-none
+        focus:outline-none
+        rounded-lg
+        text-center
+        shadow-lg
+      "
       type="text"
       placeholder="Type to enter a task"
       v-model="input"
     />
-    <div @click.prevent="submitTodo" class="w-20 h-16 bg-white flex items-center rounded-full shadow-lg">
+    <div
+      @click.prevent="submitTodo"
+      class="w-20 h-16 bg-white flex items-center rounded-full shadow-lg"
+    >
       <svg
         class="w-8 h-8 text-gray-500 m-auto"
         fill="none"

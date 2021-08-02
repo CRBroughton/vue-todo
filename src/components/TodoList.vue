@@ -13,13 +13,26 @@
           flex
           break-all
           shadow-lg
+          transition
+          duration-200
+          ease-in-out
         "
         :class="todo.isCompleted && lineThrough"
       >
         {{ todo.contents }}
       </li>
       <div
-        class="bg-red-200 right-0 ml-2 w-14 h-14 rounded-lg flex items-center shadow-lg"
+        class="
+          bg-red-200
+          right-0
+          ml-2
+          w-14
+          h-14
+          rounded-lg
+          flex
+          items-center
+          shadow-lg
+        "
         @click.prevent="DeleteTodoFromList(todo.id)"
       >
         <svg
@@ -70,4 +83,21 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.shortFade-enter-from {
+  opacity: 0;
+}
+.shortFade-enter-to {
+  opacity: 1;
+}
+.shortFade-enter-active,
+.shortFade-leave-active {
+  transition: all 0.2s ease;
+}
+
+.shortFade-leave-from {
+  opacity: 1;
+}
+.shortFade-leave-to {
+  opacity: 0;
+}
 </style>
