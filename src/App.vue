@@ -1,11 +1,12 @@
 <template>
-  <div class="bg-gray-600">
+  <div class="font-semibold top-0 fixed bg-gray-200 flex w-full p-4 text-lg">Your tasks</div>
+  <div class="bg-gray-200">
+    <TodoList />
     <CreateTodo
-      class="w-full bottom-0 fixed"
+      class="w-full bottom-0 sticky"
       @CreateTodo="AddTodoToList"
       v-if="!CreateTodoToggle"
     />
-    <TodoList />
   </div>
 </template>
 
@@ -34,4 +35,7 @@ export default defineComponent({
 </script>
 
 <style>
+* {
+  font-family: "Inter";
+}
 </style>

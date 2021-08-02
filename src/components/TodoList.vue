@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center h-screen pt-1">
+  <div class="mt-12 p-4 text-center h-screen overflow-y-auto">
     <ul v-for="todo in todos" :key="todo.id" class="p-1 flex items-center">
       <li
         @click.prevent="setTodoToComplete(todo.id)"
@@ -12,13 +12,14 @@
           items-center
           flex
           break-all
+          shadow-lg
         "
         :class="todo.isCompleted && lineThrough"
       >
         {{ todo.contents }}
       </li>
       <div
-        class="bg-red-200 right-0 ml-2 w-14 h-14 rounded-lg flex items-center"
+        class="bg-red-200 right-0 ml-2 w-14 h-14 rounded-lg flex items-center shadow-lg"
         @click.prevent="DeleteTodoFromList(todo.id)"
       >
         <svg
