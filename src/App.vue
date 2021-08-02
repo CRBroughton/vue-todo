@@ -1,21 +1,23 @@
 <template>
-  <CreateTodo @CreateTodo="AddTodoToList" v-if="CreateTodoToggle" />
-  <SideMenu @CreateTodoToggle="ShowCreateTodo" />
-  <TodoList />
+  <div class="p-2 bg-gray-600">
+    <CreateTodo
+      class="rounded-lg"
+      @CreateTodo="AddTodoToList"
+      v-if="!CreateTodoToggle"
+    />
+    <TodoList />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import SideMenu from "@/components/SideMenu.vue";
 import CreateTodo from "@/components/CreateTodo.vue";
 import TodoList from "@/components/TodoList.vue";
 import { AddTodoToList } from "@/functions/CreateTodos";
 
-
 export default defineComponent({
   name: "App",
   components: {
-    SideMenu,
     CreateTodo,
     TodoList,
   },
