@@ -2,6 +2,10 @@ const saveToStorage = function (value) {
   window.localStorage.setItem("the-key", value);
 };
 
+const deleteFromStorage = function (value) {
+  window.localStorage.removeItem("the-key", value);
+}
+
 const fakeLocalStorage = (function () {
   let store = {};
 
@@ -21,4 +25,4 @@ const fakeLocalStorage = (function () {
   };
 })();
 
-export { saveToStorage, fakeLocalStorage };
+export { saveToStorage, deleteFromStorage, fakeLocalStorage };
