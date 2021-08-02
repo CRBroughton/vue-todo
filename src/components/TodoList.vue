@@ -56,7 +56,7 @@ export default defineComponent({
       getTodos();
     });
 
-    const lineThrough = ref<string>("line-through");
+    const lineThrough = ref<string>("line-through bg-gray-300");
 
     return {
       lineThrough,
