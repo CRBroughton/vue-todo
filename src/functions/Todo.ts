@@ -2,6 +2,8 @@ import { ref } from "vue";
 import db from "@/localbase";
 import Todo from "@/types/Todo";
 
+db.config.debug = true;
+
 // Stores todos in an array of objects
 const todos = ref<Todo[]>([]);
 
@@ -28,11 +30,15 @@ const AddTodoToList = function (input: string) {
 // Accepts an input as a number which corresponds to the todo id
 // that todo is then deleted from the database and removed from the list
 // using a filter function
-const DeleteTodoFromList = function (input:number) {
-  db.collection("todo").doc({ id:input }).delete();
-
-  todos.value = todos.value.filter(todo => todo.id !== input);
-  return;
+const DeleteTodoFromList = async function (input:number) {
+  try {
+    await db.collection("todo").doc({ id:input }).delete();
+    todos.value = todos.value.filter(todo => todo.id !== input);
+    return;
+  }
+  catch (err) {
+    console.error("error", err);
+  }
 }
 
 // Accepts an input as a number which corresponds to the todo id
@@ -40,16 +46,28 @@ const DeleteTodoFromList = function (input:number) {
 // boolean value
 // Once the database is updated, the selected todo is then filtered from
 // the todo list and updated with its new boolean value
-const setTodoToComplete = function (input:number) {
-  db.collection("todo").doc({ id:input }).get().then((todo: { isCompleted: boolean; }) => {
-    const todoCompletedValue = todo.isCompleted;
-    db.collection("todo").doc({ id:input }).update({
-    isCompleted: !todoCompletedValue
+const setTodoToComplete = async function (input:number) {
+  try {
+    const completedTodo = await db.collection("todo").doc({ id:input }).get()
+    console.log(completedTodo)
+  }
+  catch (err) {
+    console.log("error", err)
+  }
+  try {
+    await db.collection("todo").doc({ id:input }).get().then((todo: { isCompleted: boolean; }) => {
+      const todoCompletedValue = todo.isCompleted;
+      db.collection("todo").doc({ id:input }).update({
+      isCompleted: !todoCompletedValue
+      })
     })
-  })
-  const currentTodo = todos.value.filter(todo => todo.id === input);
-  currentTodo[0].isCompleted = !currentTodo[0].isCompleted;
-  return;
+    const currentTodo = todos.value.filter(todo => todo.id === input);
+    currentTodo[0].isCompleted = !currentTodo[0].isCompleted;
+    return;
+  }
+  catch (err) {
+    console.error("error", err);
+  }
 }
 
 export { todos, getTodos, AddTodoToList, DeleteTodoFromList, setTodoToComplete };
