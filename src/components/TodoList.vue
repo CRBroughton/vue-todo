@@ -4,6 +4,7 @@
       <li
         @click="setTodoToComplete(todo.id)"
         class="my-1 p-4 rounded-lg bg-gray-100 items-center flex break-all"
+        :class="todo.isCompleted && lineThrough"
       >
         {{ todo.contents }}
         <div class="absolute right-0 mr-6" @click="DeleteTodoFromList(todo.id)">
@@ -27,12 +28,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { onMounted } from "@vue/runtime-core";
-import db from "@/localbase";
+import { onMounted, ref } from "@vue/runtime-core";
 import {
   todos,
   DeleteTodoFromList,
   setTodoToComplete,
+  getTodos,
 } from "@/functions/CreateTodos";
 
 export default defineComponent({
@@ -42,11 +43,10 @@ export default defineComponent({
       getTodos();
     });
 
-    const getTodos = async () => {
-      todos.value = await db.collection("todo").get();
-    };
+    const lineThrough = ref<string>("line-through");
 
     return {
+      lineThrough,
       todos,
       getTodos,
       DeleteTodoFromList,
