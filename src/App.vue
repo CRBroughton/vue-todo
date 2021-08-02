@@ -13,7 +13,7 @@
 import { defineComponent, ref } from "vue";
 import CreateTodo from "@/components/CreateTodo.vue";
 import TodoList from "@/components/TodoList.vue";
-import { AddTodoToList } from "@/functions/CreateTodos";
+import { AddTodoToList } from "@/functions/Todo";
 
 export default defineComponent({
   name: "App",

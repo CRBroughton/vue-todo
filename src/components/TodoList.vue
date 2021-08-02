@@ -34,7 +34,7 @@ import {
   DeleteTodoFromList,
   setTodoToComplete,
   getTodos,
-} from "@/functions/CreateTodos";
+} from "@/functions/Todo";
 
 export default defineComponent({
   emits: ["todos"],
