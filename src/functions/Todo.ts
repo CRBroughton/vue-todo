@@ -49,7 +49,6 @@ const DeleteTodoFromList = async function (input:number) {
 const setTodoToComplete = async function (input:number) {
   try {
     const completedTodo = await db.collection("todo").doc({ id:input }).get()
-    console.log(completedTodo)
   }
   catch (err) {
     console.log("error", err)
