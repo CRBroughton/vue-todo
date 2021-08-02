@@ -1,6 +1,6 @@
 <template>
   <div class="mt-12 p-4 text-center h-screen overflow-y-auto">
-    <ul v-for="todo in todos" :key="todo.id" class="p-1 flex items-center">
+    <ul v-for="todo in todos" :key="todo.id" class="p-1 flex items-center" todo-test="todo">
       <li
         @click.prevent="setTodoToComplete(todo.id)"
         class="
