@@ -48,12 +48,6 @@ const DeleteTodoFromList = async function (input:number) {
 // the todo list and updated with its new boolean value
 const setTodoToComplete = async function (input:number) {
   try {
-    const completedTodo = await db.collection("todo").doc({ id:input }).get()
-  }
-  catch (err) {
-    console.log("error", err)
-  }
-  try {
     await db.collection("todo").doc({ id:input }).get().then((todo: { isCompleted: boolean; }) => {
       const todoCompletedValue = todo.isCompleted;
       db.collection("todo").doc({ id:input }).update({
