@@ -1,14 +1,14 @@
 <template>
   <div class="bg-yellow-300 flex flex-row items-center">
     <input
-      class="p-3 w-full outline-none focus:outline-none rounded-lg"
+      class="p-3 w-full outline-none focus:outline-none rounded-r-lg"
       type="text"
       placeholder="Type to enter a task"
       v-model="input"
     />
     <div @click.prevent="submitTodo">
       <svg
-        class="w-12 h-12"
+        class="w-12 h-12 text-gray-700"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
