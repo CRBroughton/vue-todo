@@ -1,7 +1,7 @@
 <template>
-  <div class="p-2 bg-gray-600">
+  <div class="bg-gray-600">
     <CreateTodo
-      class="rounded-lg"
+      class="w-full bottom-0 fixed"
       @CreateTodo="AddTodoToList"
       v-if="!CreateTodoToggle"
     />
